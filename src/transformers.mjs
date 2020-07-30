@@ -1,6 +1,6 @@
 import { Transform } from "stream";
 
-export class Decoder extends Transform {
+export class Decode extends Transform {
   _transform(chunk, enc, cont) {
     while (chunk.length > 0) {
       if (this.buffer) {
@@ -19,7 +19,7 @@ export class Decoder extends Transform {
   }
 }
 
-export class Encoder extends Transform {
+export class Encode extends Transform {
   _transform(message, enc, cont) {
     const prefix = Buffer.alloc(4);
     prefix.writeUInt32BE(message.length, 0);
