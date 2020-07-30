@@ -10,6 +10,20 @@
 [![codecov.io](http://codecov.io/github/arlac77/length-prefix-framed-stream/coverage.svg?branch=master)](http://codecov.io/github/arlac77/length-prefix-framed-stream?branch=master)
 [![Coverage Status](https://coveralls.io/repos/arlac77/length-prefix-framed-stream/badge.svg)](https://coveralls.io/r/arlac77/length-prefix-framed-stream)
 
+# length-prefix-framed-stream
 
-= API
+Stream framing with length prefixes
 
+# API
+
+# install
+
+With [npm](http://npmjs.org) do:
+
+```shell
+npm install length-prefix-framed-stream
+```
+
+# license
+
+BSD-2-Clause

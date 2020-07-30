@@ -8,12 +8,12 @@ test("encode-decode", async t => {
     yield "Hello";
     yield "1";
     yield "";
-    yield "9999999999999999999999999999999999999999";
+    yield "9999999999";
   }
 
-  const readable = Readable.from(seq(), { objectMode: false});
+  const readable = Readable.from(seq(), { objectMode: true });
   const encode = new Encode();
-  const decode = new Decode({ encoding: 'utf8' });
+  const decode = new Decode({ objectMode: true, encoding: 'utf8' });
 
   readable.pipe(encode).pipe(decode);
  
@@ -23,5 +23,5 @@ test("encode-decode", async t => {
     messages.push(message);   
   }
 
-  t.deepEqual(messages,["Hello","1",""]);
+  t.deepEqual(messages,["Hello","1","", "9999999999"]);
 }); 

@@ -10,7 +10,7 @@
   "exports": {
     ".": "./src/transformers.mjs"
   },
-  "description": "Socket framing with length prefixes",
+  "description": "Stream framing with length prefixes",
   "contributors": [
     {
       "name": "Markus Felten",
