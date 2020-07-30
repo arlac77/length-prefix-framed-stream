@@ -1,14 +1,14 @@
 {
-  "name": "{{fullName}}",
+  "name": "length-prefix-framed-stream",
   "version": "0.0.0-semantic-release",
   "publishConfig": {
     "access": "public"
   },
   "sideEffects": false,
   "type": "module",
-  "main": "./src/framed-stream.mjs",
+  "main": "./src/transformers.mjs",
   "exports": {
-    ".": "./src/framed-stream.mjs"
+    ".": "./src/transformers.mjs"
   },
   "description": "Socket framing with length prefixes",
   "contributors": [
@@ -21,8 +21,8 @@
   "scripts": {
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
     "test": "ava --timeout 2m",
-    "docs": "documentation readme ./src/framed-stream.mjs --section=API",
-    "lint": "documentation lint ./src/framed-stream.mjs"
+    "docs": "documentation readme ./src/transformers.mjs --section=API",
+    "lint": "documentation lint ./src/transformers.mjs"
   },
   "devDependencies": {
     "c8": "^7.2.1",

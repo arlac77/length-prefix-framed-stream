@@ -6,3 +6,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/arlac77/length-prefix-framed-stream/badge.svg)](https://snyk.io/test/github/arlac77/length-prefix-framed-stream)
 [![codecov.io](http://codecov.io/github/arlac77/length-prefix-framed-stream/coverage.svg?branch=master)](http://codecov.io/github/arlac77/length-prefix-framed-stream?branch=master)
 [![Coverage Status](https://coveralls.io/repos/arlac77/length-prefix-framed-stream/badge.svg)](https://coveralls.io/r/arlac77/length-prefix-framed-stream)
+
+
+= API
+
