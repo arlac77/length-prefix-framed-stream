@@ -11,6 +11,14 @@
     ".": "./src/transformers.mjs"
   },
   "description": "Stream framing with length prefixes",
+  "keywords": [
+    "stream",
+    "streams",
+    "streaming",
+    "frame",
+    "framing",
+    "message"
+  ],
   "contributors": [
     {
       "name": "Markus Felten",
