@@ -34,21 +34,32 @@ export class Encode extends Transform {
   }
 }
 
-
 function encodeLength(number, buffer, offset) {
-
   if (number < 0xfd) {
-    buffer.writeUInt8(number, offset)
+    buffer.writeUInt8(number, offset);
     return 1;
   } else if (number <= 0xffff) {
-    buffer.writeUInt8(0xfd, offset)
-    buffer.writeUInt16LE(number, offset + 1)
+    buffer.writeUInt8(0xfd, offset);
+    buffer.writeUInt16LE(number, offset + 1);
     return 3;
   } else if (number <= 0xffffffff) {
-    buffer.writeUInt8(0xfe, offset)
-    buffer.writeUInt32LE(number, offset + 1)
+    buffer.writeUInt8(0xfe, offset);
+    buffer.writeUInt32LE(number, offset + 1);
     return 5;
   }
 
   return 0;
+}
+
+function decodeLength(buffer, offset) {
+  const first = buffer.readUInt8(offset)
+
+  if (first < 0xfd) {
+    return [ 1, first];
+  } else if (first === 0xfd) {
+    return [ 3, buffer.readUInt16LE(offset + 1)];
+  } else if (first === 0xfe) {
+    return [ 5, buffer.readUInt32LE(offset + 1)];
+  }
+  return [0];
 }
