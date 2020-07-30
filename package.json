@@ -1,3 +1,47 @@
 {
-  "main": "./src/framed-stream.mjs"
+  "name": "{{fullName}}",
+  "version": "0.0.0-semantic-release",
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "main": "./src/framed-stream.mjs",
+  "exports": {
+    ".": "./src/framed-stream.mjs"
+  },
+  "description": "Socket framing with length prefixes",
+  "contributors": [
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
+    }
+  ],
+  "license": "BSD-2-Clause",
+  "scripts": {
+    "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
+    "test": "ava --timeout 2m",
+    "docs": "documentation readme ./src/framed-stream.mjs --section=API",
+    "lint": "documentation lint ./src/framed-stream.mjs"
+  },
+  "devDependencies": {
+    "c8": "^7.2.1",
+    "ava": "^3.11.0",
+    "documentation": "^13.0.2",
+    "semantic-release": "^17.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arlac77/length-prefix-framed-stream.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arlac77/length-prefix-framed-stream/issues"
+  },
+  "homepage": "https://github.com/arlac77/length-prefix-framed-stream#readme",
+  "template": {
+    "inheritFrom": [
+      "arlac77/template-arlac77-github",
+      "arlac77/template-esm-only"
+    ]
+  }
 }
