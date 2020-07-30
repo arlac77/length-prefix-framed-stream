@@ -28,3 +28,22 @@ export class Encode extends Transform {
     cont();
   }
 }
+
+
+function encodeLength(number, buffer, offset) {
+
+  if (number < 0xfd) {
+    buffer.writeUInt8(number, offset)
+    return 1;
+  } else if (number <= 0xffff) {
+    buffer.writeUInt8(0xfd, offset)
+    buffer.writeUInt16LE(number, offset + 1)
+    return 3;
+  } else if (number <= 0xffffffff) {
+    buffer.writeUInt8(0xfe, offset)
+    buffer.writeUInt32LE(number, offset + 1)
+    return 5;
+  }
+
+  return 0;
+}
