@@ -12,12 +12,12 @@
   },
   "description": "Stream framing with length prefixes",
   "keywords": [
-    "stream",
-    "streams",
-    "streaming",
     "frame",
     "framing",
-    "message"
+    "message",
+    "stream",
+    "streaming",
+    "streams"
   ],
   "contributors": [
     {
