@@ -6,12 +6,12 @@ export class Decode extends Transform {
       if (this.buffer) {
         chunk = Buffer.concat([this.buffer, chunk]);
       }
-      if(chunk.length >= 4) {
-        const length = chunk.readUInt32BE(0);
-        const nextFrame = 4 + length;
-        //console.log("FRAME", length, chunk.length >= nextFrame);
+
+      const [consumed, length] = decodeLength(chunk);
+      if(consumed > 0) {
+        const nextFrame = consumed + length;
         if(chunk.length >= nextFrame) {
-          this.push(chunk.slice(4, nextFrame));
+          this.push(chunk.slice(consumed, nextFrame));
           chunk = chunk.slice(nextFrame);
         }
         else { break; }
@@ -25,16 +25,13 @@ export class Decode extends Transform {
 
 export class Encode extends Transform {
   _transform(message, enc, cont) {
-    const prefix = Buffer.alloc(4);
-    //console.log("S FRAME",message.length);
-    prefix.writeUInt32BE(message.length, 0);
-    this.push(prefix);
+    this.push(encodeLength(message.length));
     this.push(message);
     cont();
   }
 }
 
-function encodeLength(number) {
+export function encodeLength(number) {
   if (number < 0xfd) {
     const buffer = Buffer.alloc(1);
     buffer.writeUInt8(number, 0);
@@ -52,7 +49,7 @@ function encodeLength(number) {
   return buffer;
 }
 
-function decodeLength(buffer) {
+export function decodeLength(buffer) {
   if(buffer.length > 0) {
     const first = buffer.readUInt8(0);
 

@@ -14,6 +14,31 @@
 
 Stream framing with length prefixes
 
+```js
+import { pipeline } from "stream";
+import { Encode } from "length-prefix-framed-stream";
+
+const encode = new Encode();
+
+pipeline(encode, aSendStream, e => {});
+
+encode.write("message 1");
+encode.write("message 2");
+```
+
+```js
+import { pipeline } from "stream";
+import { Decode } from "length-prefix-framed-stream";
+
+const decode = new Decode({ objectMode: true, encoding: "utf8" });
+
+pipeline(aReceiveStream, decode, e => {});
+
+for await (const message of decode) {
+    console.log(message); // whole messages as put in above
+}
+````
+
 # API
 
 # install
