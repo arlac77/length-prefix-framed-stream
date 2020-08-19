@@ -34,32 +34,36 @@ export class Encode extends Transform {
   }
 }
 
-function encodeLength(number, buffer, offset) {
+function encodeLength(number) {
   if (number < 0xfd) {
-    buffer.writeUInt8(number, offset);
-    return 1;
+    const buffer = Buffer.alloc(1);
+    buffer.writeUInt8(number, 0);
+    return buffer;
   } else if (number <= 0xffff) {
-    buffer.writeUInt8(0xfd, offset);
-    buffer.writeUInt16LE(number, offset + 1);
-    return 3;
-  } else if (number <= 0xffffffff) {
-    buffer.writeUInt8(0xfe, offset);
-    buffer.writeUInt32LE(number, offset + 1);
-    return 5;
+    const buffer = Buffer.alloc(3);
+    buffer.writeUInt8(0xfd, 0);
+    buffer.writeUInt16LE(number, 1);
+    return buffer;
   }
 
-  return 0;
+  const buffer = Buffer.alloc(5);
+  buffer.writeUInt8(0xfe, 0);
+  buffer.writeUInt32LE(number, 1);
+  return buffer;
 }
 
-function decodeLength(buffer, offset) {
-  const first = buffer.readUInt8(offset)
+function decodeLength(buffer) {
+  if(buffer.length > 0) {
+    const first = buffer.readUInt8(0);
 
-  if (first < 0xfd) {
-    return [ 1, first];
-  } else if (first === 0xfd) {
-    return [ 3, buffer.readUInt16LE(offset + 1)];
-  } else if (first === 0xfe) {
-    return [ 5, buffer.readUInt32LE(offset + 1)];
+    if (first < 0xfd) {
+      return [ 1, first];
+    } else if (first === 0xfd && buffer.length >= 3) {
+      return [ 3, buffer.readUInt16LE(1)];
+    } else if (first === 0xfe && buffer.length >= 5) {
+      return [ 5, buffer.readUInt32LE(1)];
+    }
   }
   return [0];
 }
+
