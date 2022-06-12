@@ -63,4 +63,3 @@ export function decodeLength(buffer) {
   }
   return [0];
 }
-
