@@ -1,6 +1,6 @@
 [![npm](https://img.shields.io/npm/v/length-prefix-framed-stream.svg)](https://www.npmjs.com/package/length-prefix-framed-stream)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![minified size](https://badgen.net/bundlephobia/min/length-prefix-framed-stream)](https://bundlephobia.com/result?p=length-prefix-framed-stream)
+[![Open Bundle](https://bundlejs.com/badge-light.svg)](https://bundlejs.com/?q=length-prefix-framed-stream)
 [![downloads](http://img.shields.io/npm/dm/length-prefix-framed-stream.svg?style=flat-square)](https://npmjs.org/package/length-prefix-framed-stream)
 [![GitHub Issues](https://img.shields.io/github/issues/arlac77/length-prefix-framed-stream.svg?style=flat-square)](https://github.com/arlac77/length-prefix-framed-stream/issues)
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Farlac77%2Flength-prefix-framed-stream%2Fbadge\&style=flat)](https://actions-badge.atrox.dev/arlac77/length-prefix-framed-stream/goto)
