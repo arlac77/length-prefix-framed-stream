@@ -40,7 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arlac77/length-prefix-framed-stream.git"
+    "url": "https://github.com/arlac77/length-prefix-framed-stream"
   },
   "bugs": {
     "url": "https://github.com/arlac77/length-prefix-framed-stream/issues"
