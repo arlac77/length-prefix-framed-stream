@@ -13,8 +13,8 @@ export class Decode extends Transform {
       if(consumed > 0) {
         const nextFrame = consumed + length;
         if(chunk.length >= nextFrame) {
-          this.push(chunk.slice(consumed, nextFrame));
-          chunk = chunk.slice(nextFrame);
+          this.push(chunk.subarray(consumed, nextFrame));
+          chunk = chunk.subarray(nextFrame);
         }
         else { break; }
       }
