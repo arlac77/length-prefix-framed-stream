@@ -1,12 +1,14 @@
 import { Transform } from "stream";
 
+
+
 export class Decode extends Transform {
   _transform(chunk, enc, cont) {
-    while (chunk.length > 0) {
-      if (this.buffer) {
-        chunk = Buffer.concat([this.buffer, chunk]);
-      }
+    if (this.buffer) {
+      chunk = Buffer.concat([this.buffer, chunk]);
+    }
 
+    while (chunk.length > 0) {
       const [consumed, length] = decodeLength(chunk);
       if(consumed > 0) {
         const nextFrame = consumed + length;
