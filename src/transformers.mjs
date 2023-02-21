@@ -1,7 +1,5 @@
 import { Transform } from "stream";
 
-
-
 export class Decode extends Transform {
   _transform(chunk, enc, cont) {
     if (this.buffer) {
