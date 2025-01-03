@@ -1,5 +1,5 @@
 [![npm](https://img.shields.io/npm/v/length-prefix-framed-stream.svg)](https://www.npmjs.com/package/length-prefix-framed-stream)
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://spdx.org/licenses/0BSD.html)
+[![License](https://img.shields.io/badge/License-0BSD-blue.svg)](https://spdx.org/licenses/0BSD.html)
 [![bundlejs](https://deno.bundlejs.com/?q=length-prefix-framed-stream\&badge=detailed)](https://bundlejs.com/?q=length-prefix-framed-stream)
 [![downloads](http://img.shields.io/npm/dm/length-prefix-framed-stream.svg?style=flat-square)](https://npmjs.org/package/length-prefix-framed-stream)
 [![GitHub Issues](https://img.shields.io/github/issues/arlac77/length-prefix-framed-stream.svg?style=flat-square)](https://github.com/arlac77/length-prefix-framed-stream/issues)
